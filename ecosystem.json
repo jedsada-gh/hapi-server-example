@@ -1,0 +1,26 @@
+{
+    "apps": [{
+        "name": "test",
+        "script": "src/route.js",
+        "exec_mode": "fork",
+        "interpreter": "node",
+        "env": {
+            "NODE_ENV": "development",
+            "DB_URL": "mongodb://localhost/mychanneldb",
+            "USER": "",
+            "PASSWORD": ""
+        },
+        "env_staging": {
+            "NODE_ENV": "staging",
+            "DB_URL": "mongodb://localhost/mychanneldb/staging",
+            "USER": "",
+            "PASSWORD": ""
+        },
+        "env_production": {
+            "NODE_ENV": "production",
+            "DB_URL": "mongodb://localhost/mychanneldb/production",
+            "USER": "",
+            "PASSWORD": ""
+        }
+    }]
+}

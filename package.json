@@ -1,0 +1,16 @@
+{
+  "name": "hapi_workshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "route.js",
+  "scripts": {
+    "start": "node src/route.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^16.5.0"
+  }
+
+}
