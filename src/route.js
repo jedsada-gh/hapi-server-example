@@ -1,8 +1,10 @@
 'use strict';
 
 const Hapi = require('hapi');
-const configRoute = require("./route-config");
+const configRoute = require('./route-config');
 const handlers = require('./handlers');
+const mongoose = require('mongoose');
+const UserInfo = require('./model').UserInfo;
 
 const mHandlers = new handlers.default();
 const server = new Hapi.Server();
@@ -12,12 +14,30 @@ server.connection({
     host: 'localhost'
 });
 
+let db = connection()
+
+db.on('error', console.error.bind(console, 'connection error'));
+db.once('open', function callback() {
+    console.log("Connection with database succeeded.");
+});
+
+server.start((err) => {
+    if (err) throw err;
+    console.log(`Server running at: ${server.info.uri}`);
+});
+
 server.route({
     method: 'GET',
     path: '/',
     handler: function (request, reply) {
         console.log('process.env.NODE_ENV:', process.env.NODE_ENV);
-        reply('Hello, world!' + process.env.DB_URL);
+        UserInfo.find({}, function (err, user) {
+            if (!err) {
+                reply("user");
+            } else {
+                reply("fdsafdsafdsafdsa"); // 500 error
+            }
+        });
     }
 });
 
@@ -43,7 +63,17 @@ server.route([{
     handler: mHandlers.getUserInfo
 }]);
 
-server.start((err) => {
-    if (err) throw err;
-    console.log(`Server running at: ${server.info.uri}`);
-});
+function getDbOptions() {
+    let options = {
+        server: {
+            poolSize: process.env.POOL_SIZE
+        },
+        user: process.env.USER,
+        pass: process.env.PASSWORD
+    }
+    return options
+}
+
+function connection() {
+    return mongoose.createConnection(process.env.DB_URL, getDbOptions);
+}
