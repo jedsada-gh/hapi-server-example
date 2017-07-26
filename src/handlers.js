@@ -1,9 +1,18 @@
 'use strict';
 
+require('./database').db;
+const userInfo = require('./user-info-model');
+
 class Handler {
     constructor() {
         this.getUserInfo = (request, reply) => {
-            reply('Hello, ' + encodeURIComponent(request.params.name) + '!');
+            userInfo.find({}, function (err, user) {
+                if (!err) {
+                    reply(user);
+                } else {
+                    reply("error");
+                }
+            });
         };
     }
 }
