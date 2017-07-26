@@ -4,7 +4,8 @@
   "description": "",
   "main": "route.js",
   "scripts": {
-    "start": "node src/route.js"
+    "start": "node src/route.js",
+    "test": "node test/example_test.js"
   },
   "keywords": [],
   "author": "",
