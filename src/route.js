@@ -48,3 +48,5 @@ server.route([{
     config: configRoute.reponseUserInfo,
     handler: mHandlers.getUserInfo
 }]);
+
+module.exports = server

@@ -2,15 +2,15 @@
 
 const mongoose = require('mongoose');
 
-const connectionOptions = {
-    server: {
-      poolSize: process.env.POOL_SIZE
-    },
-    user: process.env.USER,
-    pass: process.env.PASSWORD
-  };
+// const connectionOptions = {
+//     server: {
+//       poolSize: process.env.POOL_SIZE
+//     },
+//     user: process.env.USER,
+//     pass: process.env.PASSWORD
+//   };
 
-mongoose.connect(process.env.DB_URL, this.connectionOptions);
+mongoose.connect("mongodb://127.0.0.1/test");
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error'));
