@@ -1,0 +1,29 @@
+{
+    "apps": [{
+        "name": "test",
+        "script": "src/route.js",
+        "exec_mode": "fork",
+        "interpreter": "node",
+        "env": {
+            "NODE_ENV": "development",
+            "DB_URL": "mongodb://127.0.0.1/test",
+            "POOL_SIZE": 10,
+            "USER": "",
+            "PASSWORD": ""
+        },
+        "env_staging": {
+            "NODE_ENV": "staging",
+            "DB_URL": "host_staging",
+            "POOL_SIZE": 10,
+            "USER": "",
+            "PASSWORD": ""
+        },
+        "env_production": {
+            "NODE_ENV": "production",
+            "DB_URL": "host_production",
+            "POOL_SIZE": 10,
+            "USER": "",
+            "PASSWORD": ""
+        }
+    }]
+}
