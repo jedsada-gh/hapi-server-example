@@ -4,6 +4,7 @@ const hapi = require('hapi');
 const boom = require('boom');
 const configRoute = require('./route-config');
 const handlers = require('./handlers');
+const inert = require('inert');
 
 const mHandlers = new handlers.default();
 const server = new hapi.Server();
@@ -47,3 +48,5 @@ server.route([{
     config: configRoute.reponseUserInfo,
     handler: mHandlers.getUserInfo
 }]);
+
+module.exports = server;

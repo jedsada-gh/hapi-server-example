@@ -1,6 +1,7 @@
-var assert = require('assert');
-describe('validate number', function () {
-    it('should be number 5 when the value is 5', function () {
-        assert.equal(5, 5);
-    });
+const Lab = require('lab');
+const lab = exports.lab = Lab.script();
+
+lab.test('returns true when 1 + 1 equals 2', (done) => {
+    Lab.expect(1 + 1).to.equal(2);
+    done();
 });
