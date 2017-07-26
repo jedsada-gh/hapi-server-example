@@ -32,10 +32,10 @@ server.route([{
     config: configRoute.reponseUserInfo,
     handler: mHandlers.getUserInfo
 }, {
-    method: 'POST',
-    path: '/api/userinfo/{name}',
-    config: configRoute.reponseUserInfo,
-    handler: mHandlers.getUserInfo
+    method: 'GET',
+    path: '/api/employee/{email}',
+    config: configRoute.reponseEmployee,
+    handler: mHandlers.getListEmployee
 }, {
     method: 'DELETE',
     path: '/api/userinfo/{name}',

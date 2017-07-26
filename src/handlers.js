@@ -2,7 +2,8 @@
 
 require('./database').db;
 const boom = require('boom');
-const userInfo = require('./user-info-model');
+const userInfo = require('./model/user-info-model');
+const employee = require('./model/employee-model');
 
 class Handler {
     constructor() {
@@ -14,6 +15,16 @@ class Handler {
                     reply(boom.notFound('missing'))
                 }
             });
+        };
+
+        this.getListEmployee = (request, reply) => {
+            employee.find({email: request.params.email}, function (err, employee) {
+                if (!err) {
+                    reply(employee);
+                } else {
+                    reply(boom.notFound('missing'))
+                }
+            }).limit(10);
         };
     }
 }
