@@ -18,6 +18,16 @@ class Handler {
         };
 
         this.getListEmployee = (request, reply) => {
+            employee.find({}, function (err, employee) {
+                if (!err) {
+                    reply(employee);
+                } else {
+                    reply(boom.notFound('missing'))
+                }
+            }).limit(10);
+        };
+
+        this.getEmployeeByEmail = (request, reply) => {
             employee.find({email: request.params.email}, function (err, employee) {
                 if (!err) {
                     reply(employee);

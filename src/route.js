@@ -33,14 +33,14 @@ server.route([{
     handler: mHandlers.getUserInfo
 }, {
     method: 'GET',
-    path: '/api/employee/{email}',
+    path: '/api/employee',
     config: configRoute.reponseEmployee,
     handler: mHandlers.getListEmployee
 }, {
-    method: 'DELETE',
-    path: '/api/userinfo/{name}',
-    config: configRoute.reponseUserInfo,
-    handler: mHandlers.getUserInfo
+    method: 'GET',
+    path: '/api/employee/{email}',
+    config: configRoute.reponseEmployee,
+    handler: mHandlers.getEmployeeByEmail
 }, {
     method: 'PUT',
     path: '/api/userinfo/{name}',
