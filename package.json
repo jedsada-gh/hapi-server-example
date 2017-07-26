@@ -13,6 +13,7 @@
     "boom": "^5.2.0",
     "hapi": "^16.5.0",
     "hapi-mongoose": "^1.0.1",
-    "mongoose": "~4.10.2"
+    "mongoose": "~4.10.2",
+    "unit.js": "^2.0.0"
   }
 }
