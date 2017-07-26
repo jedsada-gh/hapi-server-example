@@ -1,6 +1,7 @@
 'use strict';
 
 require('./database').db;
+const boom = require('boom');
 const userInfo = require('./user-info-model');
 
 class Handler {
@@ -10,7 +11,7 @@ class Handler {
                 if (!err) {
                     reply(user);
                 } else {
-                    reply("error");
+                    reply(boom.notFound('missing'))
                 }
             });
         };

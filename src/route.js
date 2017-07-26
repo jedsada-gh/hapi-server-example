@@ -1,6 +1,7 @@
 'use strict';
 
 const hapi = require('hapi');
+const boom = require('boom');
 const configRoute = require('./route-config');
 const handlers = require('./handlers');
 
@@ -21,7 +22,7 @@ server.route({
     method: 'GET',
     path: '/',
     handler: function (request, reply) {
-        reply("OK");
+        reply(boom.notFound('missing'))
     }
 });
 
