@@ -3,6 +3,7 @@
         "name": "test",
         "script": "src/route.js",
         "exec_mode": "fork",
+        "watch": true,
         "interpreter": "node",
         "env": {
             "NODE_ENV": "development",

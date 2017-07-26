@@ -30,6 +30,7 @@ class Handler {
         this.getEmployeeByEmail = (request, reply) => {
             employee.find({email: request.params.email}, function (err, employee) {
                 if (!err) {
+                    console.log(employee)
                     reply(employee);
                 } else {
                     reply(boom.notFound('missing'))
