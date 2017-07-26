@@ -1,13 +1,13 @@
 'use strict';
 
 require('./database').db;
-const Hapi = require('hapi');
+const hapi = require('hapi');
 const configRoute = require('./route-config');
 const handlers = require('./handlers');
-const userinfo = require('./model').UserInfo;
+const userInfo = require('./user-info-model');
 
 const mHandlers = new handlers.default();
-const server = new Hapi.Server();
+const server = new hapi.Server();
 
 server.connection({
     port: 3000,
@@ -23,7 +23,7 @@ server.route({
     method: 'GET',
     path: '/',
     handler: function (request, reply) {
-        userinfo.find({}, function (err, user) {
+        userInfo.find({}, function (err, user) {
             if (!err) {
                 reply(user);
             } else {
