@@ -5,7 +5,7 @@
   "main": "route.js",
   "scripts": {
     "start": "node src/route.js",
-    "test": "node test/example_test.js"
+    "test": "mocha"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +16,8 @@
     "hapi-mongoose": "^1.0.1",
     "mongoose": "~4.10.2",
     "unit.js": "^2.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.4.2"
   }
 }
